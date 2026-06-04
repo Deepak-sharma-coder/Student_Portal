@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+}
+
+.container{
+width:90%;
+max-width:500px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+.hidden{
+display:none;
+}
+
+.profile{
+text-align:center;
+}
+
+.profile img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:3px solid #007bff;
+}
+
+.info{
+margin-top:20px;
+}
+
+.card{
+background:#f8f9fa;
+padding:15px;
+margin-top:10px;
+border-radius:8px;
+}
+
+.logout{
+background:red;
+}
+
+.logout:hover{
+background:darkred;
+}
+
+@media(max-width:768px){
+.container{
+width:95%;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Signup -->
+
+<div class="container" id="signupSection">
+<h2>Student Signup</h2>
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<input type="file" id="photo">
+
+<button onclick="signup()">Signup</button>
+
+<p style="text-align:center;margin-top:15px;">
+Already have account?
+<a href="#" onclick="showLogin()">Login</a>
+</p>
+</div>
+
+<!-- Login -->
+
+<div class="container hidden" id="loginSection">
+<h2>Student Login</h2>
+
+<input type="email" id="loginEmail" placeholder="Email">
+
+<input type="password" id="loginPassword" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p style="text-align:center;margin-top:15px;">
+New Student?
+<a href="#" onclick="showSignup()">Signup</a>
+</p>
+</div>
+
+<!-- Dashboard -->
+
+<div class="container hidden" id="dashboard">
+
+<h2>Student Dashboard</h2>
+
+<div class="profile">
+
+<img id="profileImage" src="" alt="Student">
+
+<h3 id="studentName"></h3>
+
+<p id="studentEmail"></p>
+
+</div>
+
+<div class="info">
+
+<div class="card">
+<h4>Attendance</h4>
+
+<select id="attendance">
+<option value="Present">Present</option>
+<option value="Absent">Absent</option>
+</select>
+
+<button onclick="saveAttendance()">
+Save Attendance
+</button>
+</div>
+
+<div class="card">
+<h4>Marks</h4>
+
+<input type="number" id="marks" placeholder="Enter Marks">
+
+<button onclick="saveMarks()">
+Save Marks
+</button>
+</div>
+
+<div class="card">
+<h4>Student Information</h4>
+
+<p>
+Attendance:
+<span id="attendanceDisplay">N/A</span>
+</p>
+
+<p>
+Marks:
+<span id="marksDisplay">0</span>
+</p>
+</div>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
